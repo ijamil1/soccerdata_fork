@@ -609,6 +609,8 @@ class FBref(BaseRequestsReader):
                 elem.getparent().remove(elem)
             if big_five:
                 df_table = _parse_table(tree)
+                print(df_table.head())
+                print(df_table.columns)
                 df_table[("Unnamed: league", "league")] = (
                     df_table.xs("Comp", axis=1, level=1).squeeze().map(BIG_FIVE_DICT)
                 )
